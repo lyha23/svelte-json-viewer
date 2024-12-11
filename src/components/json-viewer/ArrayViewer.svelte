@@ -38,7 +38,9 @@
 			</span>
 		</button>
 		{#if expanded}
-			<span class="ml-4">
+			<div class="relative ml-4">
+				<div class="absolute -left-[23px] top-0 bottom-0 w-[1px] bg-gray-300"
+				></div>
 				{#each data as value, i}
 					<span class="flex items-start">
 						<JsonViewer data={value} expandLevel={expandLevel - 1} />
@@ -50,7 +52,7 @@
 						{/if}
 					</span>
 				{/each}
-			</span>
+			</div>
 			<span class="text-purple-600">]</span>
 		{/if}
 	</span>
