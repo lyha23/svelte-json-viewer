@@ -2,18 +2,26 @@
 	import JsonViewer from '../components/JsonViewer.svelte'
 
 	const sampleData = {
-		name: 'JSON查看器',
-		version: '1.0.0',
-		features: ['可折叠展开', '语法高亮', '类型识别'],
-		config: {
-			expandLevel: 2,
-			theme: 'light',
-			showTypes: true,
+		avatar: undefined,
+		string: 'Lorem ipsum dolor sit amet',
+		integer: 42,
+		float: 114.514,
+		bigint: 123456789087654321n,
+		undefined: undefined,
+		timer: 0,
+		link: 'http://example.com',
+		emptyArray: [],
+		array: [19, 19, 810, 'test', NaN],
+		emptyObject: {},
+		object: {
+			foo: true,
+			bar: false,
+			last: null
 		},
-		isActive: true,
-		lastUpdated: null,
-		notANumber: NaN,
-		emptyValue: null,
+		nestedArray: [
+			[1, 2],
+			[3, 4]
+		]
 	}
 </script>
 
