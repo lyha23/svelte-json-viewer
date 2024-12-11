@@ -21,19 +21,21 @@
 	</span>
 {:else}
 	<span class="inline-flex items-start flex-col">
-		<button on:click={toggleExpand} class="inline-flex items-start">
-			<span class="cursor-pointer mr-1 text-xl">
+		<button on:click={toggleExpand} class="relative">
+			<span class="absolute -left-4 top-0.5 cursor-pointer">
 				{#if expanded}
 					<img class="w-4 h-4" src="/svg/bottom-forward.svg" alt="" />
 				{:else}
 					<img class="w-4 h-4" src="/svg/right-forward.svg" alt="" />
 				{/if}
 			</span>
-			{#if keyName}<span class="text-purple-600">{keyName}: </span>{/if}
-			<span class="text-purple-600">{'{'}</span>
-			{#if !expanded}
-				<span class="text-purple-600">...}</span>
-			{/if}
+			<span>
+				{#if keyName}<span class="text-purple-600">{keyName}: </span>{/if}
+				<span class="text-purple-600">{'{'}</span>
+				{#if !expanded}
+					<span class="text-purple-600">...}</span>
+				{/if}
+			</span>
 		</button>
 		{#if expanded}
 			<span class="ml-4">
