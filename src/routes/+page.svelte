@@ -1,7 +1,7 @@
 <script lang="ts">
-	import JsonViewer from '../components/JsonViewer.svelte'
+	import JsonViewer from '../components/json-viewer/JsonViewer.svelte'
 
-	const sampleData = {
+	const data = {
 		avatar: undefined,
 		string: 'Lorem ipsum dolor sit amet',
 		integer: 42,
@@ -16,12 +16,12 @@
 		object: {
 			foo: true,
 			bar: false,
-			last: null
+			last: null,
 		},
 		nestedArray: [
 			[1, 2],
-			[3, 4]
-		]
+			[3, 4],
+		],
 	}
 </script>
 
@@ -29,6 +29,6 @@
 	<h1 class="text-gray-800 mb-4 text-2xl font-bold">JSON查看器</h1>
 
 	<div class="bg-gray-100 rounded-lg p-4 border border-gray-300">
-		<JsonViewer data={sampleData} expandLevel={2} />
+		<JsonViewer {data} expandLevel={3} />
 	</div>
 </div>

@@ -34,78 +34,90 @@
 				return String(value)
 		}
 	}
+
+	function isEmpty(value: any): boolean {
+		if (Array.isArray(value)) return value.length === 0
+		if (typeof value === 'object' && value !== null) return Object.keys(value).length === 0
+		return false
+	}
 </script>
 
 <div class="font-mono text-14px leading-normal">
 	{#if typeof data === 'object' && data !== null}
-		<div>
-			<div class="flex items-start">
-				<span
-					class="cursor-pointer select-none mr-2"
-					on:click={toggleExpand}
-					role="button"
-					tabindex="0"
-				>
-					{expanded ? '▼' : '▶'}
-				</span>
+		{#if isEmpty(data)}
+			<span class="text-purple-600">
+				{Array.isArray(data) ? '[]' : '{}'}
+			</span>
+		{:else}
+			<div>
+				<div class="flex items-start">
+					<span
+						class="cursor-pointer select-none mr-2"
+						on:click={toggleExpand}
+						role="button"
+						tabindex="0"
+					>
+						{expanded ? '▼' : '▶'}
+					</span>
 
-				{#if Array.isArray(data)}
-					<span class="text-purple-600">[</span>
-					{#if !expanded}
-						<span class="text-purple-600">...]</span>
+					{#if Array.isArray(data)}
+						<span class="text-purple-600">[</span>
+						{#if !expanded}
+							<span class="text-purple-600">...]</span>
+						{/if}
+					{:else}
+						<span class="text-purple-600">{'{'}</span>
+						{#if !expanded}
+							<span class="text-purple-600">...}</span>
+						{/if}
 					{/if}
-				{:else}
-					<span class="text-purple-600">{'{'}</span>
-					{#if !expanded}
-						<span class="text-purple-600">...}</span>
-					{/if}
+				</div>
+
+				{#if expanded}
+					<div class="ml-6">
+						{#if Array.isArray(data)}
+							{#each data as value, i}
+								<span class="flex items-start">
+									<svelte:self data={value} expandLevel={expandLevel - 1} />
+									{#if i < data.length - 1}
+										<span class="text-purple-600">,</span>
+									{/if}
+								</span>
+							{/each}
+						{:else}
+							{#each Object.entries(data) as [key, value], i}
+								<span class="flex items-start">
+									{#if isComplex(value)}
+										<span class="inline-flex items-start">
+											<span class="text-purple-600">{key}: </span>
+											<svelte:self data={value} expandLevel={expandLevel - 1} />
+											{#if i < Object.entries(data).length - 1}
+												<span class="text-purple-600">,</span>
+											{/if}
+										</span>
+									{:else}
+										<span class="inline-flex items-start">
+											<span class="text-purple-600">{key}: </span>
+											<svelte:self data={value} expandLevel={expandLevel - 1} />
+											{#if i < Object.entries(data).length - 1}
+												<span class="text-purple-600">,</span>
+											{/if}
+										</span>
+									{/if}
+								</span>
+							{/each}
+						{/if}
+					</div>
+					<div class="ml-4">
+						{#if Array.isArray(data)}
+							<span class="text-purple-600">]</span>
+						{:else}
+							<span class="text-purple-600">}</span>
+						{/if}
+					</div>
 				{/if}
 			</div>
-
-			{#if expanded}
-				<div class="ml-6">
-					{#if Array.isArray(data)}
-						{#each data as value, i}
-							<div class="flex items-start">
-								<svelte:self data={value} expandLevel={expandLevel - 1} />
-								{#if i < data.length - 1}
-									<span class="text-purple-600 ml-1">,</span>
-								{/if}
-							</div>
-						{/each}
-					{:else}
-						{#each Object.entries(data) as [key, value], i}
-							<div>
-								{#if isComplex(value)}
-									<div>
-										<span class="text-purple-600">{key}: </span>
-										<svelte:self data={value} expandLevel={expandLevel - 1} />
-										{#if i < Object.entries(data).length - 1}
-											<span class="text-purple-600">,</span>
-										{/if}
-									</div>
-								{:else}
-									<div class="flex items-start">
-										<span class="text-purple-600">{key}: </span>
-										<svelte:self data={value} expandLevel={expandLevel - 1} />
-										{#if i < Object.entries(data).length - 1}
-											<span class="text-purple-600">,</span>
-										{/if}
-									</div>
-								{/if}
-							</div>
-						{/each}
-					{/if}
-				</div>
-				<div class="ml-4">
-					{#if Array.isArray(data)}
-						<span class="text-purple-600">]</span>
-					{:else}
-						<span class="text-purple-600">}</span>
-					{/if}
-				</div>
-			{/if}
-		</div>
+		{/if}
 	{:else}
 		<span
 			class="
