@@ -1,0 +1,23 @@
+{
+  "semi": false,
+  "svelteSortOrder": "options-scripts-markup-styles",
+  "svelteStrictMode": true,
+  "svelteAllowShorthand": true,
+  "svelteIndentScriptAndStyle": true,
+  "singleQuote": true,
+  "plugins": [
+    "prettier-plugin-svelte",
+    "prettier-plugin-css-order"
+  ],
+  "useTabs": true,
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    }
+  ],
+  "htmlWhitespaceSensitivity": "strict",
+  "endOfLine": "auto"
+}
