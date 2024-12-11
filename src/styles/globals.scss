@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: 
+  url('/fonts/GoogleSans-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: 
+  url('/fonts/GoogleSans-Medium.woff2') format('woff2'),
+  url('/fonts/GoogleSans-Medium.woff') format('woff'),
+  url('/fonts/GoogleSans-Medium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/GoogleSans-Bold.woff2') format('woff2'),
+                  url('/fonts/GoogleSans-Bold.woff') format('woff'),
+  url('/fonts/GoogleSans-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+main {
+	font-family: "PingFang SC",'Google Sans', Avenir, ui-sans-serif, 'system-ui',
+		'-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto',
+		'Helvetica Neue', 'Arial', '"Noto Sans"', sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', Helvetica, Arial,
+		sans-serif;
+    font-weight: normal; 
+    font-weight: 400;
+}
+
+html {
+  @media (min-width: 768px) {
+    div{
+      font-size: 12px;
+    }
+  }
+  @media (min-width: 1024px) {
+    div{
+      font-size: 12px;
+    }
+  }
+  @media (min-width: 1536px) {
+    div{
+      font-size: 14px;
+    }
+  }
+  @media (min-width: 1800px) {
+    div{
+      font-size: 14px;
+    }
+  }
+  @media (min-width: 2000px) {
+    div{
+      font-size: 14px;
+    }
+  }
+}
+
+.section-container {
+  @apply 2xl:container xl:px-20 <lg:w-full md:px-12 px-2 mx-auto;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-strong {
+  background: linear-gradient(
+    90deg,
+    #fff 0%,
+    #fff 50%,
+    #6dd5ed 51%,
+    #2193b0 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+.title-medium{
+  @apply relative pl4;
+}
+
+.title-medium::before {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 0px;
+  border-radius: 16px;
+  background-color: rgb(58, 100, 255);
+  width: 5px;
+  overflow: hidden;
+  content: '';
+}
+
+.beautify-shadow{
+  box-shadow: 0 4px 30px hsla(0, 0%, 80%, .2);
+}
+
+	button:disabled {
+		cursor: not-allowed; /* 不可点击的鼠标指针 */
+		border-color: #d1d1d1; /* 边框颜色 */
+		background-color: #f3f3f3; /* 灰色背景 */
+		color: #a1a1a1; /* 灰色文本 */
+	}
+

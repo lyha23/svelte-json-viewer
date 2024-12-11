@@ -1,0 +1,76 @@
+table {
+  border-color: inherit;
+  border-collapse: collapse;
+  text-indent: 0;
+}
+
+
+table {
+  @apply w-full border-collapse;
+  table-layout: auto;
+  font-family:
+    IBM Plex Mono,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    Liberation Mono,
+    Courier New,
+    monospace;
+}
+
+table tbody tr{
+  @apply hover:bg-[#f5f5f5] border-b border-dashed last:border-solid ;
+  &:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+}
+
+table thead tr{
+  @apply   first:border-solid first:border-y;
+}
+
+table th {
+  font-family:
+    Source Sans Pro,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    Segoe UI Symbol,
+    'Noto Color Emoji';
+}
+
+thead th {
+  @apply first:border-solid border-t border-b bg-white;
+  position: sticky;
+  top: 0;
+}
+
+
+table th,
+table td {
+  padding: 0.4rem 0.375rem;
+  text-align: center;
+}
+
+table td {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.bold-left {
+  @apply border-dashed border-l;
+}
+
+tr.selected  {
+  td{
+    @apply  hover:bg-[#0059dd] text-white;
+  }
+  @apply bg-[#0059dd] hover:bg-[#0059dd] text-white;
+  &:nth-child(even) {
+  @apply bg-[#0059dd] hover:bg-[#0059dd] text-white;
+  }
+}

@@ -39,5 +39,5 @@
 		"src/**/*.js",
 		"src/**/*.svelte",
 		"src/constants.ts"
-	]
+, "static/svg/buttom-forward.svg", "static/svg/right-forwward.svg"	]
 }

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import JsonViewer from './JsonViewer.svelte'
+	import { getType, isEmpty as isEmptyFn, shouldShowComma } from './utils'
 
 	export let data: Record<string, any>
 	export let expandLevel: number
@@ -20,21 +21,20 @@
 	</span>
 {:else}
 	<span class="inline-flex items-start flex-col">
-		<span class="inline-flex items-start">
-			<span
-				class="cursor-pointer select-none mr-1"
-				on:click={toggleExpand}
-				role="button"
-				tabindex="0"
-			>
-				{expanded ? '▼' : '▶'}
+		<button on:click={toggleExpand} class="inline-flex items-start">
+			<span class="cursor-pointer mr-1 text-xl">
+				{#if expanded}
+					<img class="w-4 h-4" src="/svg/bottom-forward.svg" alt="" />
+				{:else}
+					<img class="w-4 h-4" src="/svg/right-forward.svg" alt="" />
+				{/if}
 			</span>
 			{#if keyName}<span class="text-purple-600">{keyName}: </span>{/if}
 			<span class="text-purple-600">{'{'}</span>
 			{#if !expanded}
 				<span class="text-purple-600">...}</span>
 			{/if}
-		</span>
+		</button>
 		{#if expanded}
 			<span class="ml-4">
 				{#each Object.entries(data) as [key, value], i}
@@ -45,7 +45,9 @@
 							keyName={key}
 						/>
 						{#if i < Object.entries(data).length - 1}
-							<span class="text-purple-600">,</span>
+							{#if shouldShowComma(value, isEmptyFn(value))}
+								<span class="text-purple-600">,</span>
+							{/if}
 						{/if}
 					</div>
 				{/each}

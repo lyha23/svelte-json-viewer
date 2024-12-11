@@ -1,0 +1,20 @@
+.form-input-alt {
+  border-width: 1px;
+  border-radius: 0.5rem;
+  line-height: 1.5rem;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.form-input-alt {
+  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  &:focus {
+    outline: 1px solid blue;
+    outline-offset: 0px;
+  }
+}

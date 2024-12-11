@@ -1,0 +1,33 @@
+.heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6 {
+  font-family: 'NYTCheltenham', Georgia, 'Times New Roman', Times, serif;
+}
+
+.heading-1 {
+  font-size: 28px;
+  margin-bottom: 0.5em;
+}
+
+.heading-2 {
+  font-size: 24px;
+  margin-bottom: 0.5em;
+}
+
+.heading-3 {
+  font-size: 20px;
+  margin-bottom: 0.5em;
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.link {
+  color: #326891;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
