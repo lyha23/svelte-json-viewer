@@ -77,6 +77,6 @@ export function isComplexType(value: any): boolean {
   return (type === 'object' || type === 'array');
 }
 
-export function shouldShowComma(value: any, isEmpty: boolean): boolean {
-  return !(isComplexType(value) && !isEmpty);
+export function shouldShowComma(value: any): boolean {
+  return !(isComplexType(value));
 }

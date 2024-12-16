@@ -119,3 +119,10 @@ html {
 		color: #a1a1a1; /* 灰色文本 */
 	}
 
+
+  .mask-copy {
+		-webkit-mask: url(/svg/copy.svg) no-repeat center;
+		mask: url(/svg/copy.svg) no-repeat center;
+		-webkit-mask-size: contain;
+		mask-size: contain;
+	}

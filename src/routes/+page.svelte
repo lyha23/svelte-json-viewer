@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { onMount } from 'svelte'
 	import JsonViewer from '../components/json-viewer/JsonViewer.svelte'
+	import { copiedData } from '../components/json-viewer/stores'
+	import { toSerializableObject, toJSON } from '../utils'
 
 	const data = {
 		avatar: undefined,

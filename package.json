@@ -21,6 +21,7 @@
 		"@types/node": "^22.8.7",
 		"@unocss/extractor-svelte": "^0.64.1",
 		"@unocss/reset": "^0.64.1",
+		"copy-to-clipboard": "^3.3.3",
 		"crypto-js": "^4.2.0",
 		"eslint-plugin-perfectionist": "^3.9.1",
 		"svelte-persisted-store": "^0.12.0"

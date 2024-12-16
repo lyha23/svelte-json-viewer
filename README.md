@@ -1,38 +1,17 @@
-# sv
+# 介绍 Introduction
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+这是一个基于 Svelte 的 JSON 查看器，支持 JSON 的格式化、展开、复制、搜索、排序等功能。
 
-## Creating a project
+This is a JSON viewer based on Svelte, supporting JSON formatting, expansion, copying, searching, and sorting.
 
-If you're seeing this, you've probably already done this step. Congrats!
+![image](./img/intro.png)
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 使用方式 How to use
 
 ```bash
-npm run dev
+# 安装依赖 install dependencies
+pnpm install
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# 启动开发环境 start development environment
+pnpm run dev
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
